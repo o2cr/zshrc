@@ -1,6 +1,6 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=256000
+HISTSIZE=12800
 SAVEHIST=$HISTSIZE
 setopt appendhistory autocd nomatch
 bindkey -e
