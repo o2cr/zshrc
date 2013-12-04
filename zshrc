@@ -261,6 +261,7 @@ extract () {
   fi
 }
 
+
 #mkcd
 mkcd() {
     if (( ARGC != 1 )); then
@@ -275,6 +276,15 @@ mkcd() {
     builtin cd "$1"
 }
 
+#4chandownload
+
+fourchan () {
+    if ["$1" == "-h"]; then
+        echo "Usage: fourchan [page URL] [folder name]"
+        exit 0
+    fi
+    mkdir ${2} && cd ${2} && $(curl -s ${1} | grep -o -i 'File: <a href="//i.4cdn.org\/[a-z]*\/src\/[0-9]*\.[a-z]\{3\}' | sed -r 's/File: <a href="\/\///' |xargs wget) && cd ..
+ }
 
 # This will change your TTY colors tho those in your .Xresources
 # Apply Xresources colors to the TTY
